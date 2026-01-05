@@ -1,0 +1,32 @@
+name: Feature Request
+description: Suggest a new feature or feature update for this project
+labels: ['type/feature', 'status/need-triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request form! Before submitting a feature request, please make sure you have searched https://github.com/bytedance/trae-agent/issues to see if there are any existing issues that cover the same idea.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What feature would you like to be added or updated?
+      description: A clear and concise description of the feature request.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why do you need this feature?
+      description: A clear and concise description of the reason why this feature is needed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional information that you believe is relevant to this feature request
+      description: Add any other context about the idea here.
+    validations:
+      required: false

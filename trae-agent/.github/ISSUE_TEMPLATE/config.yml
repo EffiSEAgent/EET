@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Trae Agent Discussions
+    url: https://github.com/bytedance/trae-agent/discussions
+    about: For general questions, roadmap, and ideas, please discuss here.
+  - name: Trae AI IDE Community
+    url: https://discord.gg/VwaQ4ZBHvC
+    about: For all inquiries related to the product, please join the Discord community.

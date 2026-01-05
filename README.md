@@ -60,6 +60,14 @@ When tackling a new issue, GEAR:
      - Assumes correctness if confidence exceeds `τ^sel_upper` (default: 90)
      - Considers issue too difficult if confidence below `τ^sel_lower` (default: 40)
 
+### Methodology
+
+For detailed methodology and technical details, please refer to the following document:
+
+<p align="center">
+  <img src="paper_src/Methodology.png" alt="GEAR Methodology" width="100%">
+</p>
+
 ## 📦 Installation
 
 ### Prerequisites
@@ -418,6 +426,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📚 Additional Resources
 
 - [Paper](paper_src/GEAR%3A%20A%20General%20Experience-Driven%20Approach%20for%20Cost-Efficient%20Software%20Engineering%20Agents.pdf)
+- [Methodology](paper_src/Methodology.png)
 - [Agentless Documentation](Agentless/README.md)
 - [Mini-SWE-Agent Documentation](mini-swe-agent/README.md)
 - [Trae Agent Documentation](trae-agent/README.md)

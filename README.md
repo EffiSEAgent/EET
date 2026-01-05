@@ -1,9 +1,8 @@
-# GEAR: A General Experience-Driven Approach for Cost-Efficient Software Engineering Agents
+# EET: Experience-Driven Early Termination for Cost-Efficient Software Engineering Agents
 
-[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](paper_src/GEAR%3A%20A%20General%20Experience-Driven%20Approach%20for%20Cost-Efficient%20Software%20Engineering%20Agents.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**GEAR** is a general experience-driven approach that reduces the cost of software engineering (SE) agents while preserving task performance. GEAR extracts structured experience from prior issue-resolution executions and leverages it to guide patch generation and selection, enabling early termination of unproductive iterations.
+**EET** is a general experience-driven approach that reduces the cost of software engineering (SE) agents while preserving task performance. EET extracts structured experience from prior issue-resolution executions and leverages it to guide patch generation and selection, enabling early termination of unproductive iterations.
 
 ## 📋 Table of Contents
 
@@ -22,13 +21,13 @@
 
 ## 🎯 Overview
 
-Software engineering agents powered by large language models are increasingly adopted in practice, yet they often incur substantial monetary cost. GEAR addresses this challenge by:
+Software engineering agents powered by large language models are increasingly adopted in practice, yet they often incur substantial monetary cost. EET addresses this challenge by:
 
 1. **Extracting structured experience** from historical issue-resolution activities, encoding information about the issue, execution trajectory, and outcomes
 2. **Retrieving relevant experience** when tackling new issues to guide agent behavior
 3. **Enabling early termination** of redundant iterations during both patch generation and selection
 
-GEAR consistently reduces total cost by **19%–55%** (32% on average) with negligible loss in resolution rate (at most 0.2%) across three representative SE agents on the SWE-bench Verified benchmark.
+EET consistently reduces total cost by **19%–55%** (32% on average) with negligible loss in resolution rate (at most 0.2%) across three representative SE agents on the SWE-bench Verified benchmark.
 
 ## ✨ Key Features
 
@@ -40,11 +39,11 @@ GEAR consistently reduces total cost by **19%–55%** (32% on average) with negl
 
 ## 🏗️ Architecture
 
-GEAR operates through two complementary mechanisms:
+EET operates through two complementary mechanisms:
 
 ### Experience Extraction
 
-GEAR captures structured experience from historical issue-resolution activities, including:
+EET captures structured experience from historical issue-resolution activities, including:
 - Issue description and metadata
 - Agent execution trajectory
 - Outcomes of prior attempts
@@ -52,7 +51,7 @@ GEAR captures structured experience from historical issue-resolution activities,
 
 ### Experience-Guided Execution
 
-When tackling a new issue, GEAR:
+When tackling a new issue, EET:
 1. Retrieves relevant experience from the experience store
 2. Uses confidence thresholds to guide early termination:
    - **Patch Generation**: Terminates if confidence exceeds `τ^gen` (default: 90)
@@ -65,7 +64,7 @@ When tackling a new issue, GEAR:
 For detailed methodology and technical details, please refer to the following document:
 
 <p align="center">
-  <img src="paper_src/Methodology.png" alt="GEAR Methodology" width="100%">
+  <img src="readme_src/Methodology.jpg" alt="EET Methodology" width="100%">
 </p>
 
 ## 📦 Installation
@@ -80,8 +79,8 @@ For detailed methodology and technical details, please refer to the following do
 Clone the repository:
 
 ```bash
-git clone https://github.com/EffiSEAgent/GEAR.git
-cd GEAR
+git clone https://github.com/EffiSEAgent/EET.git
+cd EET
 ```
 
 Each agent has its own setup requirements. See the respective sections below for detailed installation instructions.
@@ -125,7 +124,7 @@ This will generate experience files for different stages:
 - `experiences_edit_location_individual.jsonl`
 - `experiences_repair_sample_1.jsonl`
 
-### 2. Run Agent with GEAR
+### 2. Run Agent with EET
 
 Configure the agent to use the experience store and run on new issues:
 
@@ -150,7 +149,7 @@ Place the extracted experience files in `Agentless/experience/extracted_experien
 - `experiences_edit_location_individual.jsonl` for edit location localization
 - `experiences_repair_sample_1.jsonl` for repair
 
-Then run as usual - GEAR will automatically load experiences if the files exist.
+Then run as usual - EET will automatically load experiences if the files exist.
 
 ## 📖 Usage
 
@@ -169,7 +168,7 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)
 export OPENAI_API_KEY=your_api_key
 ```
 
-#### Running with GEAR
+#### Running with EET
 
 1. **Localization** (find edit locations):
 ```bash
@@ -191,7 +190,7 @@ python agentless/fl/localize.py --fine_grain_line_level \
     --num_threads 10
 ```
 
-2. **Repair** (generate patches with GEAR):
+2. **Repair** (generate patches with EET):
 ```bash
 # Place experiences_repair_sample_1.jsonl in Agentless/experience/extracted_experiences/
 python agentless/repair/repair.py \
@@ -201,7 +200,7 @@ python agentless/repair/repair.py \
     --num_threads 2
 ```
 
-GEAR will automatically load experiences from `Agentless/experience/extracted_experiences/experiences_repair_sample_1.jsonl` if it exists.
+EET will automatically load experiences from `Agentless/experience/extracted_experiences/experiences_repair_sample_1.jsonl` if it exists.
 
 3. **Patch Validation** (select best patch):
 ```bash
@@ -233,7 +232,7 @@ pip install -e .
 export OPENAI_API_KEY=your_api_key  # or ANTHROPIC_API_KEY
 ```
 
-#### Running with GEAR
+#### Running with EET
 
 1. **Extract Experiences**:
 ```bash
@@ -312,7 +311,7 @@ models:
     temperature: 0.5
 ```
 
-#### Running with GEAR
+#### Running with EET
 
 1. **Extract Experiences**:
 ```bash
@@ -351,7 +350,7 @@ For detailed instructions, see [trae-agent/README.md](trae-agent/README.md).
 
 ## 🔍 Experience Extraction
 
-GEAR extracts structured experience from agent execution trajectories. The experience format includes:
+EET extracts structured experience from agent execution trajectories. The experience format includes:
 
 ```json
 {
@@ -390,9 +389,13 @@ Key thresholds for early termination:
 - **`τ^sel_lower`** (Patch Selection Lower): Default 40
   - Considers issue too difficult if confidence below this threshold
 
+## 📖 Prompt
+
+We put all the relative prompt of our project in the Prompt folder. You can use this set of prompts on any software agent you like to modify!
+
 ## 📊 Results
 
-GEAR was evaluated on SWE-bench Verified across three agents with different LLM backends:
+EET was evaluated on SWE-bench Verified across three agents with different LLM backends:
 
 | Agent | Backend | Cost Reduction | Resolution Rate Change |
 |-------|---------|----------------|------------------------|
@@ -425,8 +428,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📚 Additional Resources
 
-- [Paper](paper_src/GEAR%3A%20A%20General%20Experience-Driven%20Approach%20for%20Cost-Efficient%20Software%20Engineering%20Agents.pdf)
-- [Methodology](paper_src/Methodology.png)
+- [Methodology](readme_src/Methodology.jpg)
 - [Agentless Documentation](Agentless/README.md)
 - [Mini-SWE-Agent Documentation](mini-swe-agent/README.md)
 - [Trae Agent Documentation](trae-agent/README.md)

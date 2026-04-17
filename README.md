@@ -64,7 +64,7 @@ When tackling a new issue, EET:
 For detailed methodology and technical details, please refer to the following document:
 
 <p align="center">
-  <img src="readme_src/Methodology.jpg" alt="EET Methodology" width="100%">
+  <img src="readme_src/Methodology.png" alt="EET Methodology" width="100%">
 </p>
 
 ## 📦 Installation
@@ -415,6 +415,19 @@ EET was evaluated on SWE-bench Verified across three agents with different LLM b
   - Output tokens: -25.1% on average
 - **API Calls**: -20.8% on average
 
+## 📚 Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{guo2026eet,
+  title={EET: Experience-Driven Early Termination for Cost-Efficient Software Engineering Agents},
+  author={Guo, Yaoqi and Xiao, Ying and Zhang, Jie M. and Harman, Mark and Lou, Yiling and Liu, Yang and Chen, Zhenpeng},
+  booktitle={Findings of the Association for Computational Linguistics: ACL 2026},
+  year={2026}
+}
+```
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -428,7 +441,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📚 Additional Resources
 
-- [Methodology](readme_src/Methodology.jpg)
+- [Methodology](readme_src/Methodology.png)
 - [Agentless Documentation](Agentless/README.md)
 - [Mini-SWE-Agent Documentation](mini-swe-agent/README.md)
 - [Trae Agent Documentation](trae-agent/README.md)
